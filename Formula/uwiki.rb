@@ -29,10 +29,9 @@ class Uwiki < Formula
     if Hardware::CPU.arm?
       url "https://github.com/FrantaNautilus/uwiki/releases/download/v#{version}/uwiki-v#{version}-aarch64-apple-darwin.tar.gz"
       sha256 "5084b20f723eea0699d6c4ab649a0b7a3893aa8412a2f366e74764329e49dccf"
-    else
-      url "https://github.com/FrantaNautilus/uwiki/releases/download/v#{version}/uwiki-v#{version}-x86_64-apple-darwin.tar.gz"
-      sha256 "REPLACE_WITH_SHA256_FROM_RELEASE_ASSET_uwiki-v0.1.0-x86_64-apple-darwin.tar.gz.sha256"
-    end
+  else
+    odie "macOS x86_64 (Intel) is not supported via prebuilt binaries. Please install with --HEAD to build from source."
+  end
   end
 
   on_linux do
